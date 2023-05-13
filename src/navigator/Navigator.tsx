@@ -14,7 +14,7 @@ export const  Navigator = () => {
             backgroudColor:'white'
         }
     }}>
-      <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Screen name="LoginScreen" component={LoginScreen}options={{ headerShown: false }} />
       <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
       <Stack.Screen name="ProtectedScreen" component={ProtectedScreen} />
     </Stack.Navigator>
