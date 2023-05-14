@@ -4,14 +4,17 @@ import { Background } from '../components/Background';
 import { loginStyles } from '../theme/loginTheme';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useForm } from '../hooks/useForm';
-import { useRoute, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 
 const { width, height } = Dimensions.get('window');
 export { width, height };
 
 //interface Props extends StackScreenProps<any,any>
+
 export const LoginScreen = () => {
+    const navigation = useNavigation();
+
     const{email,password,onChange}= useForm({
         email:'',
         password:''
@@ -19,6 +22,7 @@ export const LoginScreen = () => {
     const onLogin = ()=>{
         console.log(email,password);
         Keyboard.dismiss();
+        navigation.navigate('ProtectedScreen');
     }
     return (
         <Background>
