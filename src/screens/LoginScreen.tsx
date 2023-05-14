@@ -1,13 +1,25 @@
 import React from 'react';
-import { StyleSheet, View, Text, TextInput, Dimensions, Platform, SafeAreaView, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Dimensions, Platform, SafeAreaView, KeyboardAvoidingView, Keyboard } from 'react-native';
 import { Background } from '../components/Background';
 import { loginStyles } from '../theme/loginTheme';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useForm } from '../hooks/useForm';
+import { useRoute, useNavigation } from '@react-navigation/native';
+
 
 const { width, height } = Dimensions.get('window');
 export { width, height };
 
+//interface Props extends StackScreenProps<any,any>
 export const LoginScreen = () => {
+    const{email,password,onChange}= useForm({
+        email:'',
+        password:''
+    });
+    const onLogin = ()=>{
+        console.log(email,password);
+        Keyboard.dismiss();
+    }
     return (
         <Background>
           
@@ -30,6 +42,9 @@ export const LoginScreen = () => {
                         selectionColor="white"
                         autoCapitalize="none"
                         autoCorrect={false}
+                        onChangeText={(value)=> onChange(value, 'email')}
+                        value={email}
+                        onSubmitEditing={onLogin}
                     ></TextInput>
                     <Text style={loginStyles.label}>contraseña</Text>
                     <TextInput
@@ -41,12 +56,17 @@ export const LoginScreen = () => {
                         selectionColor="white"
                         autoCapitalize="none"
                         autoCorrect={false}
+                        onChangeText={(value)=> onChange(value, 'password')}
+                        value={password}
+                        onSubmitEditing={onLogin}
+                        secureTextEntry
                     ></TextInput>
 
                     <View style={loginStyles.buttonContainer}>
                         <TouchableOpacity
                         activeOpacity={0.8}
-                        style={loginStyles.button}>
+                        style={loginStyles.button}
+                        onPress={onLogin}>
                             <Text style={loginStyles.buttonText}>Login</Text>
                         </TouchableOpacity>
                     </View>
