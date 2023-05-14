@@ -9,9 +9,9 @@ const Stack = createStackNavigator();
 export const  Navigator = () => {
   return (
     <Stack.Navigator screenOptions={{
-        headerShows:false,
+        headerShown:false,
         cardStyle: {
-            backgroudColor:'white'
+            backgroundColor:'white'
         }
     }}>
       <Stack.Screen name="LoginScreen" component={LoginScreen}options={{ headerShown: false }} />

@@ -13,18 +13,17 @@ export const loginStyles = StyleSheet.create({
         backgroundColor: 'rgba(255,255,255,0.5)' // Aumenta la opacidad del blanco para aclarar la imagen
     },
     centeredContent: {
+        flexGrow: 1, // Esto permite que el contenido crezca para ocupar todo el espacio disponible
         width:'90%',
-        height:'60%',
         backgroundColor: 'rgba(255,255,255,0.6)', 
-        marginBottom: '10%', 
         borderRadius:40,
-        justifyContent: 'flex-start'
+        justifyContent: 'flex-start',
+        paddingBottom: 20, // Agrega un poco de padding al final para el scroll
     },
     centeredEnd:{
         flex:1,
         paddingHorizontal:30,
         justifyContent: 'flex-end',
-        height:600,
         marginBottom:50
     },
     centeredCenter:{

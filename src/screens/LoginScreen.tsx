@@ -10,14 +10,15 @@ export { width, height };
 export const LoginScreen = () => {
     return (
         <Background>
+          
+          <KeyboardAvoidingView 
+                style={{flex:1}}
+                behavior={(Platform.OS==='ios') ? 'padding' : 'height'}>
             <View style={loginStyles.centeredContent}>
                 {/* Aquí puedes agregar tu contenido */}
                 <View style={loginStyles.centeredCenter}>
                     <Text style={loginStyles.title}>Bienvenido a SpotMe</Text>
                 </View>
-                <KeyboardAvoidingView 
-                style={{flex:1}}
-                behavior={(Platform.OS==='ios') ? 'padding' : 'height'}>
                 <View  style={loginStyles.centeredEnd}>
                     <Text style={loginStyles.label}>Email</Text>
                     <TextInput
@@ -56,9 +57,11 @@ export const LoginScreen = () => {
                             </TouchableOpacity>
                     </View>
                 </View>
-                </KeyboardAvoidingView>
 
             </View>  
+                
+            </KeyboardAvoidingView>
+                    
         </Background>
     );
 }
