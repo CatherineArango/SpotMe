@@ -4,6 +4,7 @@ import React from 'react';
 import { LoginScreen } from '../screens/LoginScreen';
 import { RegisterScreen } from '../screens/RegisterScreen';
 import { ProtectedScreen } from '../screens/ProtectedScreen';
+import { HomeScreen } from '../screens/HomeScreen';
 
 const Stack = createStackNavigator();
 export const  Navigator = () => {
@@ -16,7 +17,7 @@ export const  Navigator = () => {
     }}>
       <Stack.Screen name="LoginScreen" component={LoginScreen}options={{ headerShown: false }} />
       <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
-      <Stack.Screen name="ProtectedScreen" component={ProtectedScreen} />
+      <Stack.Screen name="ProtectedScreen" component={HomeScreen} />
     </Stack.Navigator>
   );
 }
