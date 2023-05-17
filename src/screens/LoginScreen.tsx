@@ -5,6 +5,8 @@ import { loginStyles } from '../theme/loginTheme';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useForm } from '../hooks/useForm';
 import { useRoute, useNavigation } from '@react-navigation/native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+
 
 
 const { width, height } = Dimensions.get('window');
@@ -21,73 +23,57 @@ export const LoginScreen = () => {
         Keyboard.dismiss();
     }
     return (
+
+    <KeyboardAwareScrollView style={{flex: 1}}>
+
         <Background>
-          
-          <KeyboardAvoidingView 
-                style={{flex:1}}
-                behavior={(Platform.OS==='ios') ? 'padding' : 'height'}>
-            <View style={loginStyles.centeredContent}>
-                {/* Aquí puedes agregar tu contenido */}
-                <View style={loginStyles.centeredCenter}>
-                    <Text style={loginStyles.title}>Bienvenido a SpotMe</Text>
-                </View>
-                <View  style={loginStyles.centeredEnd}>
-                    <Text style={loginStyles.label}>Email</Text>
-                    <TextInput
-                        placeholder="Email"
-                        keyboardType="email-address"
-                        underlineColorAndroid="white"
-                        style={[loginStyles.inputField,
-                        (Platform.OS ==='ios') && loginStyles.inputFieldIOS ]}
-                        selectionColor="white"
-                        autoCapitalize="none"
-                        autoCorrect={false}
-                        onChangeText={(value)=> onChange(value, 'email')}
-                        value={email}
-                        onSubmitEditing={onLogin}
-                    ></TextInput>
-                    <Text style={loginStyles.label}>contraseña</Text>
-                    <TextInput
-                        placeholder="*****"
-                        keyboardType="email-address"
-                        underlineColorAndroid="white"
-                        style={[loginStyles.inputField,
-                        (Platform.OS ==='ios') && loginStyles.inputFieldIOS ]}
-                        selectionColor="white"
-                        autoCapitalize="none"
-                        autoCorrect={false}
-                        onChangeText={(value)=> onChange(value, 'password')}
-                        value={password}
-                        onSubmitEditing={onLogin}
-                        secureTextEntry
-                    ></TextInput>
+        
+            <View style={loginStyles.formContainer}>
 
-                    <View style={loginStyles.buttonContainer}>
-                        <TouchableOpacity
-                        activeOpacity={0.8}
-                        style={loginStyles.button}
-                        onPress={onLogin}>
-                            <Text style={loginStyles.buttonText}>Login</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={loginStyles.forgotPassword}>
-                        <TouchableOpacity
-                            activeOpacity={0.8}>
-                                <Text style={loginStyles.buttonText}>¿Olvidaste tu contraseña?</Text>
-                            </TouchableOpacity>
-                    </View>
+                <Text style={loginStyles.title}>Bienvenido a SpotMe</Text>
+                <TextInput
+                    placeholder="Email"
+                    keyboardType="email-address"
+                    style={[loginStyles.inputField, {color: 'black'}]}
+                    placeholderTextColor='black'
+                    selectionColor="white"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    onChangeText={(value)=> onChange(value, 'email')}
+                    value={email}
+                    onSubmitEditing={onLogin}
+                ></TextInput>
+                <TextInput
+                    placeholder="contraseña"
+                    keyboardType="email-address"
+                    style={[loginStyles.inputField, {color: 'black'}]}
+                    placeholderTextColor='black'
+                    selectionColor="white"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    onChangeText={(value)=> onChange(value, 'password')}
+                    value={password}
+                    onSubmitEditing={onLogin}
+                    secureTextEntry
+                ></TextInput>
+                 <View style={loginStyles.forgotPassword}>
+                    <TouchableOpacity activeOpacity={0.8}>
+                        <Text style={loginStyles.buttonText2}>¿Olvidaste tu contraseña?</Text>
+                    </TouchableOpacity>
                 </View>
 
+
+                <TouchableOpacity
+                    activeOpacity={0.8}
+                    style={loginStyles.button}
+                    onPress={onLogin}>
+                        <Text style={loginStyles.buttonText}>Login</Text>
+                </TouchableOpacity>
+               
             </View>  
-                
-            </KeyboardAvoidingView>
-                    
+ 
         </Background>
+    </KeyboardAwareScrollView>
+
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-});

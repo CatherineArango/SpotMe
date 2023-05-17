@@ -1,77 +1,86 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { width, height } from "../components/Background";
 
 export const loginStyles = StyleSheet.create({
     backgroundImage: {
+
+        flex:1,
         width: width, 
         height: height,
-        justifyContent: 'flex-end', // Coloca los hijos en la parte inferior del contenedor
+        justifyContent: 'center', 
         alignItems: 'center', // Centra los hijos horizontalmente
+       
     },
     overlay: {
+
         ...StyleSheet.absoluteFillObject,
-        backgroundColor: 'rgba(255,255,255,0.5)' // Aumenta la opacidad del blanco para aclarar la imagen
+        backgroundColor: 'rgba(255,255,255,0.6)' // Aumenta la opacidad del blanco para aclarar la imagen
     },
-    centeredContent: {
-        flexGrow: 1, // Esto permite que el contenido crezca para ocupar todo el espacio disponible
-        width:'90%',
-        backgroundColor: 'rgba(255,255,255,0.6)', 
-        borderRadius:40,
-        justifyContent: 'flex-start',
-        paddingBottom: 20, // Agrega un poco de padding al final para el scroll
-    },
-    centeredEnd:{
-        flex:1,
-        paddingHorizontal:30,
-        justifyContent: 'flex-end',
-        marginBottom:50
-    },
-    centeredCenter:{
-        width:'100%',
+    formContainer:{
+
+        width: 370,
+        height: 528,
+        borderRadius: 25,
+        backgroundColor: 'rgba(255,255,255,0.9)',
         justifyContent: 'center',
-        alignItems: 'center', 
+        alignItems: 'center',
+        padding: 30,
+        marginTop: Dimensions.get('window').height / 2 - 150 // Para que el formulario aparezca a media altura
+
     },
     title: {
-        color:'white',
-        fontSize:20,
-        fontWeight:'bold',
-        marginTop:20,
-        textAlign: 'center'
-    },
-    label:{
-        color:'white',
-        fontSize:15,
-        fontWeight:'bold',
+
+        color:'#a8dadc',
+        fontSize:25,
+        fontWeight:'600',
+        textAlign: 'center',
+        marginBottom: 100
 
     },
     inputField: {
-        color:'white',
-        fontSize:10
+
+        height: 40,
+        color:'black',
+        width: 308,
+        borderColor: '#ADB5BD',
+        borderWidth: 1,
+        marginBottom: 5,
+        paddingHorizontal: 10,
+        borderRadius: 10,
+
     },
-    inputFieldIOS:{
-        borderBottomColor:'white',
-        borderBottomWidth:2,
-        paddingBottom:4
-    },
-    buttonContainer:{
-        alignItems:'center',
-        marginTop:50
-    },
+  
     button:{
-        borderWidth:2,
-        borderColor:'white',
-        paddingHorizontal:20,
-        paddingVertical:5,
-        borderRadius:100
+
+        height: 47,
+        width: 290,
+        backgroundColor: '#a8dadc',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 35,
 
     },
     buttonText: {
+
         fontSize:18,
-        color:'white'
+        color:'white',
+        fontWeight:'bold',
+
+
+    }, 
+    
+    buttonText2: {
+
+        fontSize:18,
+        color:'#ADB5BD'
+
     },
     forgotPassword:{
-        alignItems:'center',
-        marginTop:10
+
+        alignSelf:'flex-end',
+        color:'#ADB5BD',
+        marginBottom:20
+
     }
 
 });
