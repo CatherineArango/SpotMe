@@ -23,7 +23,12 @@ export const LoginScreen = () => {
     const onLogin = ()=>{
         console.log(email,password);
         Keyboard.dismiss();
-        navigation.navigate('ProtectedScreen');
+        navigation.navigate('HomeScreen');
+    } 
+    
+    const onSignUp = ()=>{
+        Keyboard.dismiss();
+        navigation.navigate('SignUpScreen');
     }
     return (
 
@@ -70,7 +75,14 @@ export const LoginScreen = () => {
                     activeOpacity={0.8}
                     style={loginStyles.button}
                     onPress={onLogin}>
-                        <Text style={loginStyles.buttonText}>Login</Text>
+                        <Text style={loginStyles.buttonText}>Log in</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    activeOpacity={0.8}
+                    style={loginStyles.button}
+                    onPress={onSignUp}>
+                        <Text style={loginStyles.buttonText}>Sign Up</Text>
                 </TouchableOpacity>
                
             </View>  

@@ -2,7 +2,7 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import { LoginScreen } from '../screens/LoginScreen';
-import { RegisterScreen } from '../screens/RegisterScreen';
+import { SignUpScreen } from '../screens/SignUpScreen';
 import { ProtectedScreen } from '../screens/ProtectedScreen';
 import { HomeScreen } from '../screens/HomeScreen';
 
@@ -16,8 +16,8 @@ export const  Navigator = () => {
         }
     }}>
       <Stack.Screen name="LoginScreen" component={LoginScreen}options={{ headerShown: false }} />
-      <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
-      <Stack.Screen name="ProtectedScreen" component={HomeScreen} />
+      <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+      <Stack.Screen name="HomeScreen" component={HomeScreen} />
     </Stack.Navigator>
   );
 }

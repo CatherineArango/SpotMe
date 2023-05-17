@@ -58,6 +58,7 @@ export const loginStyles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 35,
+        marginBottom:20
 
     },
     buttonText: {
@@ -77,7 +78,7 @@ export const loginStyles = StyleSheet.create({
     },
     forgotPassword:{
 
-        alignSelf:'flex-end',
+        alignSelf:'center',
         color:'#ADB5BD',
         marginBottom:20
 
