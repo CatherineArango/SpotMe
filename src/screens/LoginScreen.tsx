@@ -8,12 +8,14 @@ import { useRoute, useNavigation } from '@react-navigation/native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 
-
 const { width, height } = Dimensions.get('window');
 export { width, height };
 
 //interface Props extends StackScreenProps<any,any>
+
 export const LoginScreen = () => {
+    const navigation = useNavigation();
+
     const{email,password,onChange}= useForm({
         email:'',
         password:''
@@ -21,6 +23,7 @@ export const LoginScreen = () => {
     const onLogin = ()=>{
         console.log(email,password);
         Keyboard.dismiss();
+        navigation.navigate('ProtectedScreen');
     }
     return (
 
