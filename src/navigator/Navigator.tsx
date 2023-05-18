@@ -5,12 +5,13 @@ import { LoginScreen } from '../screens/LoginScreen';
 import { SignUpScreen } from '../screens/SignUpScreen';
 import { ProtectedScreen } from '../screens/ProtectedScreen';
 import { HomeScreen } from '../screens/HomeScreen';
+import { DetailScreen } from '../screens/DetailScreen';
 
 const Stack = createStackNavigator();
 export const  Navigator = () => {
   return (
     <Stack.Navigator screenOptions={{
-        headerShown:false,
+        headerShown:true,
         cardStyle: {
             backgroundColor:'white'
         }
@@ -18,6 +19,7 @@ export const  Navigator = () => {
       <Stack.Screen name="LoginScreen" component={LoginScreen}options={{ headerShown: false }} />
       <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="DetailScreen" component={DetailScreen} />
     </Stack.Navigator>
   );
 }

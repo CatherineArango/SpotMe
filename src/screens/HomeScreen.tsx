@@ -1,8 +1,15 @@
 
-import { View, Text, ActivityIndicator } from 'react-native';
+import { View, Text, ActivityIndicator, Button } from 'react-native';
 import { useCenters } from '../hooks/useCenters';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export const HomeScreen = () => {
+
+type RootStackParamList = {
+    HomeScreen: undefined;
+    DetailScreen: { id: string };
+  };
+  const Stack = createNativeStackNavigator<RootStackParamList>();
+export const HomeScreen = ({ navigation }: { navigation: any }) => {
 
     const {centersAvailable, isLoading}= useCenters();
 
@@ -18,6 +25,10 @@ export const HomeScreen = () => {
             <Text>
                 homeScreen
             </Text>
+
+            <Button title="ir a detalles de pelis"
+            onPress={() => navigation.navigate('DetailScreen', { id: '123' })}/>
+
         </View>
     )
 }
