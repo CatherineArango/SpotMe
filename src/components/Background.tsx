@@ -17,6 +17,7 @@ export const Background = ({ children }:BackgroundProps) => {
         >
             <View style={loginStyles.overlay} />
             {children}
+
         </ImageBackground>
     )
 }

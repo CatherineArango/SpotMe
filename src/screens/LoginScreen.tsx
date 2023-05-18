@@ -42,7 +42,8 @@ export const LoginScreen = () => {
                 <TextInput
                     placeholder="Email"
                     keyboardType="email-address"
-                    style={[loginStyles.inputField, {color: 'black'}]}
+                    style={[loginStyles.inputField, Platform.OS === 'ios' && loginStyles.inputFieldIOS,
+                         {color: 'black'}]}
                     placeholderTextColor='black'
                     selectionColor="white"
                     autoCapitalize="none"
@@ -54,7 +55,8 @@ export const LoginScreen = () => {
                 <TextInput
                     placeholder="contraseña"
                     keyboardType="email-address"
-                    style={[loginStyles.inputField, {color: 'black'}]}
+                    style={[loginStyles.inputField, Platform.OS === 'ios' && loginStyles.inputFieldIOS, 
+                            {color: 'black'}]}
                     placeholderTextColor='black'
                     selectionColor="white"
                     autoCapitalize="none"
