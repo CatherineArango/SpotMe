@@ -37,8 +37,10 @@ export const App = () => {
             <Stack.Screen
               name="LoginScreen"
               options={{ title: 'Login' }}
-              component={() => <LoginScreen onLoginStack={onLogin} />}
-            />
+            >
+              {(props) => <LoginScreen {...props} onLoginStack={onLogin} />}
+            </Stack.Screen>
+
             <Stack.Screen
               name="SignUpScreen"
               options={{ title: 'Sign Up' }}
