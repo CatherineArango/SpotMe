@@ -7,14 +7,17 @@ import { useForm } from '../hooks/useForm';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-
+interface LoginScreenProps {
+    onLoginStack: () => void; // define el tipo para onLogin como una función que no devuelve nada
+  }
+  
 const { width, height } = Dimensions.get('window');
 export { width, height };
 
 //interface Props extends StackScreenProps<any,any>
 
-export const LoginScreen = () => {
-    const navigation = useNavigation();
+export const LoginScreen = ({  onLoginStack }: LoginScreenProps) => {
+    //const navigation = useNavigation();
 
     const{email,password,onChange}= useForm({
         email:'',
@@ -23,12 +26,12 @@ export const LoginScreen = () => {
     const onLogin = ()=>{
         console.log(email,password);
         Keyboard.dismiss();
-        navigation.navigate('HomeScreen');
+        onLoginStack();
     } 
     
     const onSignUp = ()=>{
         Keyboard.dismiss();
-        navigation.navigate('SignUpScreen');
+        //navigation.navigate('SignUpScreen');
     }
     return (
 
