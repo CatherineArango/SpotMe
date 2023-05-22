@@ -2,20 +2,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React, { useEffect, useState } from 'react';
 import { Keyboard } from 'react-native';
-
 import { TabsMenu } from './src/navigator/TabsMenu';
 import { LoginScreen } from './src/screens/LoginScreen';
 import { SignUpScreen } from './src/screens/SignUpScreen';
-
 const Stack = createStackNavigator();
-
 export const App = () => {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
 
   const login = () => {
     setUserLoggedIn(true);
   };
-
   useEffect(() => {
     // Aquí puedes realizar la lógica para verificar si el usuario está logueado o no
     // y actualizar el estado "userLoggedIn" en consecuencia
@@ -40,6 +36,7 @@ export const App = () => {
             >
               {(props) => <LoginScreen {...props} onLoginStack={onLogin} />}
             </Stack.Screen>
+            
 
             <Stack.Screen
               name="SignUpScreen"
@@ -52,5 +49,4 @@ export const App = () => {
     </NavigationContainer>
   );
 };
-
 export default App;

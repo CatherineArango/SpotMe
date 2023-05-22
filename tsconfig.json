@@ -1,3 +1,10 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    // otras opciones...
+},
+"include": [
+    // otros directorios/ficheros...
+    "src/include/react-native-vector-icons.tsx"
+]
 }
