@@ -1,29 +1,42 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import  React from 'react';
 import { HomeScreen } from '../screens/HomeScreen';
-import { DetailScreen } from '../screens/DetailScreen';
-import { Text } from 'react-native';
-import { Background } from '../components/Background';
 import { colours } from '../theme/appTheme';
-
 import Icon from 'react-native-vector-icons/Ionicons';
-const myIcon = <Icon name="rocket" size={30} color="#900" />;
+import { createStackNavigator } from '@react-navigation/stack';
+import { DetailScreen } from '../screens/DetailScreen';
 const Tab = createBottomTabNavigator();
+
+const HomeStack = createStackNavigator();
+
+const HomeStackScreen = () => {
+  return (
+    <HomeStack.Navigator screenOptions={{
+      headerShown:true,
+  }}>
+      <HomeStack.Screen options={{ headerShown: false }} name="HomeScreenee" component={HomeScreen} />
+      <HomeStack.Screen 
+        name="DetailScreen" 
+        component={DetailScreen}
+        options={{
+          headerTransparent: true,  // Hace que la cabecera sea transparente
+          headerBackTitleVisible: false,  // Oculta el título del botón de atrás
+          headerTintColor: 'white',  // Cambia el color del botón de atrás
+          headerTitle: ''
+        }} 
+      />
+    </HomeStack.Navigator>
+  );
+}
 export const TabsMenu = () => {
   return (
     <Tab.Navigator
     screenOptions={{
       tabBarStyle: { backgroundColor: colours.primary }
-    }}
-    
-    >
-      {/*<Tab.Screen name="HomeScreen" options={{title:'tab1'}} component={DetailScreen} /> */}
-      <Tab.Screen name="HomeScreen"  options={{tabBarIcon:()=><Text>t1s</Text>}} component={HomeScreen} />
-      <Tab.Screen name="DetailScreen"   options={{ 
-      tabBarIcon: () => (
-          <Icon name="md-play-skip-back-circle" color='black' />
-        ), 
-      }}  component={DetailScreen} />
+    }}>
+      <Tab.Screen name="HomeScreenee"   options={{ 
+        tabBarIcon: () => (<Icon name="md-play-skip-back-circle" color='black' /> ), 
+        headerShown: false}}  component={HomeStackScreen} />
     </Tab.Navigator>
   );
 }
