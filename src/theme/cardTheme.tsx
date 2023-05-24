@@ -34,5 +34,8 @@ export const cardTheme = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-end',
       },
+
+
+
     
 });
